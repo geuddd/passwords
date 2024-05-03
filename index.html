@@ -10,11 +10,16 @@
         margin: 0;
         padding: 0;
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         height: 100vh;
         background-color: #f4f4f4;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     button {
         padding: 10px 20px;
@@ -37,10 +42,6 @@
         text-align: center;
     }
     #accessCodePrompt {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
     #accessCodePrompt p {
@@ -55,30 +56,32 @@
 </head>
 <body>
 
-<div id="accessCodePrompt" class="hidden">
-    <h2>Welcome!</h2>
-    <p>Please enter the access code:</p>
-    <input type="password" id="accessCodeInput">
-    <button onclick="checkAccessCode()">Submit</button>
-</div>
+<div class="container">
+    <div id="accessCodePrompt" class="hidden">
+        <h2>Welcome!</h2>
+        <p>Please enter the access code:</p>
+        <input type="password" id="accessCodeInput">
+        <button onclick="checkAccessCode()">Submit</button>
+    </div>
 
-<button id="jackButton" onclick="showCredentials('Jack Pearson')" class="hidden">Jack Pearson</button>
-<button id="judeButton" onclick="showCredentials('Jude Wilson')" class="hidden">Jude Wilson</button>
-<button id="iraButton" onclick="showCredentials('Ira Raven')" class="hidden">Ira Raven</button>
-<button id="faresButton" onclick="showCredentials('Fares Kandil')" class="hidden">Fares Kandil</button>
-<button id="eliseButton" onclick="showCredentials('Elise Ostfeld')" class="hidden">Elise Ostfeld</button>
-<button id="felixButton" onclick="showCredentials('Felix Salman')" class="hidden">Felix Salman</button>
-<button id="guthrieButton" onclick="showCredentials('Guthrie Mcfadden')" class="hidden">Guthrie Mcfadden</button>
-<button id="owenButton" onclick="showCredentials('Owen Chen')" class="hidden">Owen Chen</button>
-<button id="jacobButton" onclick="showCredentials('Jacob Tinoco')" class="hidden">Jacob Tinoco</button>
-<button id="wyattButton" onclick="showCredentials('Wyatt Snyder')" class="hidden">Wyatt Snyder</button>
-<button id="rowanButton" onclick="showCredentials('Rowan Hovland')" class="hidden">Rowan Hovland</button>
+    <button id="jackButton" onclick="showCredentials('Jack Pearson')" class="hidden">Jack Pearson</button>
+    <button id="judeButton" onclick="showCredentials('Jude Wilson')" class="hidden">Jude Wilson</button>
+    <button id="iraButton" onclick="showCredentials('Ira Raven')" class="hidden">Ira Raven</button>
+    <button id="faresButton" onclick="showCredentials('Fares Kandil')" class="hidden">Fares Kandil</button>
+    <button id="eliseButton" onclick="showCredentials('Elise Ostfeld')" class="hidden">Elise Ostfeld</button>
+    <button id="felixButton" onclick="showCredentials('Felix Salman')" class="hidden">Felix Salman</button>
+    <button id="guthrieButton" onclick="showCredentials('Guthrie Mcfadden')" class="hidden">Guthrie Mcfadden</button>
+    <button id="owenButton" onclick="showCredentials('Owen Chen')" class="hidden">Owen Chen</button>
+    <button id="jacobButton" onclick="showCredentials('Jacob Tinoco')" class="hidden">Jacob Tinoco</button>
+    <button id="wyattButton" onclick="showCredentials('Wyatt Snyder')" class="hidden">Wyatt Snyder</button>
+    <button id="rowanButton" onclick="showCredentials('Rowan Hovland')" class="hidden">Rowan Hovland</button>
 
-<div id="credentials" class="credentials hidden">
-    <p id="username"></p>
-    <p id="password"></p>
-    <button onclick="copyUsername()">Copy Username</button>
-    <button onclick="copyPassword()">Copy Password</button>
+    <div id="credentials" class="credentials hidden">
+        <p id="username"></p>
+        <p id="password"></p>
+        <button onclick="copyUsername()">Copy Username</button>
+        <button onclick="copyPassword()">Copy Password</button>
+    </div>
 </div>
 
 <script>
