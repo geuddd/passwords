@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usernames and Passwords</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    .hidden {
+        display: none;
+    }
+    .credentials {
+        margin-top: 20px;
+        text-align: center;
+    }
+    #accessCodePrompt {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    #accessCodePrompt p {
+        margin: 10px 0;
+    }
+    #accessCodeInput {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+
+<div id="accessCodePrompt" class="hidden">
+    <h2>Welcome!</h2>
+    <p>Please enter the access code:</p>
+    <input type="password" id="accessCodeInput">
+    <button onclick="checkAccessCode()">Submit</button>
+</div>
+
+<button id="jackButton" onclick="showCredentials('Jack Pearson')" class="hidden">Jack Pearson</button>
+<button id="judeButton" onclick="showCredentials('Jude Wilson')" class="hidden">Jude Wilson</button>
+<button id="iraButton" onclick="showCredentials('Ira Raven')" class="hidden">Ira Raven</button>
+<button id="faresButton" onclick="showCredentials('Fares Kandil')" class="hidden">Fares Kandil</button>
+<button id="eliseButton" onclick="showCredentials('Elise Ostfeld')" class="hidden">Elise Ostfeld</button>
+<button id="felixButton" onclick="showCredentials('Felix Salman')" class="hidden">Felix Salman</button>
+<button id="guthrieButton" onclick="showCredentials('Guthrie Mcfadden')" class="hidden">Guthrie Mcfadden</button>
+<button id="owenButton" onclick="showCredentials('Owen Chen')" class="hidden">Owen Chen</button>
+<button id="jacobButton" onclick="showCredentials('Jacob Tinoco')" class="hidden">Jacob Tinoco</button>
+<button id="wyattButton" onclick="showCredentials('Wyatt Snyder')" class="hidden">Wyatt Snyder</button>
+<button id="rowanButton" onclick="showCredentials('Rowan Hovland')" class="hidden">Rowan Hovland</button>
+
+<div id="credentials" class="credentials hidden">
+    <p id="username"></p>
+    <p id="password"></p>
+    <button onclick="copyUsername()">Copy Username</button>
+    <button onclick="copyPassword()">Copy Password</button>
+</div>
+
+<script>
+    function checkAccessCode() {
+        var accessCode = document.getElementById('accessCodeInput').value;
+        if (accessCode === "abc") {
+            localStorage.setItem("accessGranted", "true");
+            document.getElementById('accessCodePrompt').classList.add('hidden');
+            showNames();
+        } else {
+            alert("Incorrect access code. Please try again.");
+        }
+    }
+
+    function showCredentials(name) {
+        if (!localStorage.getItem("accessGranted")) {
+            document.getElementById('accessCodePrompt').classList.remove('hidden');
+            return;
+        }
+
+        var credentials = document.getElementById('credentials');
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+
+        switch (name) {
+            case 'Jack Pearson':
+                username.textContent = 'Username: Jack.pearsonzg@stu.austinisd.org';
+                password.textContent = 'Password: P060211s';
+                break;
+            case 'Jude Wilson':
+                username.textContent = 'Username: jude.wilson0j@stu.austinisd.org';
+                password.textContent = 'Password: W092110s';
+                break;
+            case 'Ira Raven':
+                username.textContent = 'Username: ira.raven7w@stu.austinisd.org';
+                password.textContent = 'Password: R101310s';
+                break;
+            case 'Fares Kandil':
+                username.textContent = 'Username: fares.kandilu0@stu.austinisd.org';
+                password.textContent = 'Password: K030111s';
+                break;
+            case 'Elise Ostfeld':
+                username.textContent = 'Username: elise.ostfeld79@stu.austinisd.org';
+                password.textContent = 'Password: O121310s';
+                break;
+            case 'Felix Salman':
+                username.textContent = 'Username: felix.salman29@stu.austinisd.org';
+                password.textContent = 'Password: S072711s';
+                break;
+            case 'Guthrie Mcfadden':
+                username.textContent = 'Username: guthrie.mcfadden9b@stu.austinisd.org';
+                password.textContent = 'Password: M011111s';
+                break;
+            case 'Owen Chen':
+                username.textContent = 'Username: owen.chenm6@stu.austinisd.org';
+                password.textContent = 'Password: C070112s';
+                break;
+            case 'Jacob Tinoco':
+                username.textContent = 'Username: jacob.tinocoq3@stu.austinisd.org';
+                password.textContent = 'Password: T062111s';
+                break;
+            case 'Wyatt Snyder':
+                username.textContent = 'Username: wyatt.snyder17@stu.austinisd.org';
+                password.textContent = 'Password: S082311s';
+                break;
+            case 'Rowan Hovland':
+                username.textContent = 'Username: rowan.hovland5f@stu.austinisd.org';
+                password.textContent = 'Password: H012011s';
+                break;
+            default:
+                username.textContent = '';
+                password.textContent = '';
+        }
+
+        credentials.classList.remove('hidden');
+    }
+
+    function showNames() {
+        var buttons = document.querySelectorAll('button');
+        buttons.forEach(function(button) {
+            button.classList.remove('hidden');
+        });
+    }
+
+    function copyUsername() {
+        var usernameText = document.getElementById('username').textContent;
+        var username = usernameText.replace('Username: ', '');
+        navigator.clipboard.writeText(username);
+        alert("Username copied to clipboard!");
+    }
+
+    function copyPassword() {
+        var passwordText = document.getElementById('password').textContent;
+        var password = passwordText.replace('Password: ', '');
+        navigator.clipboard.writeText(password);
+        alert("Password copied to clipboard!");
+    }
+
+    window.onload = function() {
+        if (!localStorage.getItem("accessGranted")) {
+            document.getElementById('accessCodePrompt').classList.remove('hidden');
+        } else {
+            showNames();
+        }
+    };
+</script>
+
+</body>
+</html>
