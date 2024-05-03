@@ -52,6 +52,25 @@
         border-radius: 5px;
         border: 1px solid #ccc;
     }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        text-align: center;
+    }
 </style>
 </head>
 <body>
@@ -81,6 +100,14 @@
         <p id="password"></p>
         <button onclick="copyUsername()">Copy Username</button>
         <button onclick="copyPassword()">Copy Password</button>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="copyModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <p>Copied!</p>
     </div>
 </div>
 
@@ -170,14 +197,22 @@
         var usernameText = document.getElementById('username').textContent;
         var username = usernameText.replace('Username: ', '');
         navigator.clipboard.writeText(username);
-        alert("Username copied to clipboard!");
+        showModal();
     }
 
     function copyPassword() {
         var passwordText = document.getElementById('password').textContent;
         var password = passwordText.replace('Password: ', '');
         navigator.clipboard.writeText(password);
-        alert("Password copied to clipboard!");
+        showModal();
+    }
+
+    function showModal() {
+        var modal = document.getElementById('copyModal');
+        modal.style.display = "block";
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 1500); // Hide modal after 1.5 seconds
     }
 
     window.onload = function() {
