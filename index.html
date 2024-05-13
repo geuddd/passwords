@@ -94,6 +94,8 @@
     <button id="jacobButton" onclick="showCredentials('Jacob Tinoco')" class="hidden">Jacob Tinoco</button>
     <button id="wyattButton" onclick="showCredentials('Wyatt Snyder')" class="hidden">Wyatt Snyder</button>
     <button id="rowanButton" onclick="showCredentials('Rowan Hovland')" class="hidden">Rowan Hovland</button>
+    <button id="charlesButton" onclick="showCredentials('Charles Laverty')" class="hidden">Charles Laverty</button>
+    <button id="silasButton" onclick="showCredentials('Silas Pederson')" class="hidden">Silas Pederson</button>
 
     <div id="credentials" class="credentials hidden">
         <p id="username"></p>
@@ -178,6 +180,14 @@
                 username.textContent = 'Username: rowan.hovland5f@stu.austinisd.org';
                 password.textContent = 'Password: H012011s';
                 break;
+            case 'Charles Laverty':
+                username.textContent = 'Username: charles.lavertyfs@stu.austinisd.org';
+                password.textContent = 'Password: L050710s';
+                break;
+            case 'Silas Pederson':
+                username.textContent = 'Username: silas.pedersengg@stu.austinisd.org';
+                password.textContent = 'Password: P052312s';
+                break;
             default:
                 username.textContent = '';
                 password.textContent = '';
@@ -212,7 +222,7 @@
         modal.style.display = "block";
         setTimeout(function() {
             modal.style.display = "none";
-        }, 1500); // Hide modal after 1.5 seconds
+        }, 1000); // Hide modal after 1.5 seconds
     }
 
     window.onload = function() {
